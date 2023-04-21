@@ -1,0 +1,22 @@
+# Mutation
+mutation UpdateAuthor($updateAuthor: UpdateAuthorInput!) {
+  updateAuthor(updateAuthorInput: $updateAuthor) {
+    author {
+      id
+      name
+      phone
+      email
+    }
+  }
+}
+
+# Variables
+{
+  "updateAuthor": {
+    "authorId": "d9219023-17e9-4c86-a2b6-4071d5caa85e",
+    "name": "Author test",
+    "email": "author.test@mail.com.br",
+    "phone": "12345678",
+    "password": "Strong-password"
+  }
+}

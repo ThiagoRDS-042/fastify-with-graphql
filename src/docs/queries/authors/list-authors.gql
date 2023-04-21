@@ -1,0 +1,19 @@
+# Query
+query ListAuthors($listAuthors: ListAuthorsInput) {
+  listAuthors(listAuthorsInput: $listAuthors) {
+    authors {
+      id
+      name
+      email
+      phone
+    }
+  }
+}
+
+# Variables
+{
+  "listAuthors": {
+    "nameContains": "author",
+    "emailContains": "author"
+  }
+}

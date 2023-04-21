@@ -1,0 +1,11 @@
+# Query
+query ShowAuthor {
+  showAuthor {
+    author {
+      id
+      name
+      email
+      phone
+    }
+  }
+}

@@ -1,0 +1,14 @@
+# Mutation
+mutation Authenticate($authenticate: AuthenticateInput!) {
+  authenticate(authenticateInput: $authenticate) {
+    accessToken
+  }
+}
+
+# Variables
+{
+	"authenticate": {
+		"email": "author.test@mail.com.br",
+    "password": "Strong-password"
+  }
+}

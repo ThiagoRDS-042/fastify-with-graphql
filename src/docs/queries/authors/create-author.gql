@@ -1,0 +1,21 @@
+# Mutation
+mutation CreateAuthor($createAuthor: CreateAuthorInput!) {
+  createAuthor(createAuthorInput: $createAuthor) {
+    author {
+      id
+      name
+      email
+      phone
+    }
+  }
+}
+
+# Variables
+{
+	"createAuthor": {
+		"name": "Author test",
+    "email": "author.test@mail.com.br",
+    "phone": "23878655643",
+    "password": "Strong-password"
+  }
+}
