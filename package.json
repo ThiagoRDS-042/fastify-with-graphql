@@ -53,6 +53,7 @@
     "mercurius": "12.2.0",
     "reflect-metadata": "0.1.13",
     "rimraf": "5.0.0",
+    "slugify": "1.6.6",
     "type-graphql": "2.0.0-beta.1",
     "zod": "3.21.4"
   }
