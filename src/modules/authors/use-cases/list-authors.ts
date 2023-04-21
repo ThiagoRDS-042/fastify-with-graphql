@@ -11,7 +11,7 @@ interface IResponse {
 }
 
 export class ListAuthors {
-  constructor(private authorsRepository: AuthorsRepository) {}
+  constructor(private readonly authorsRepository: AuthorsRepository) {}
 
   public async execute(parmas: IParams): Promise<IResponse> {
     const { emailContains, nameContains } = parmas;

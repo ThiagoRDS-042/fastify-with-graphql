@@ -14,7 +14,7 @@ interface IResponse {
 }
 
 export class Authenticate {
-  constructor(private authorsRepository: AuthorsRepository) {}
+  constructor(private readonly authorsRepository: AuthorsRepository) {}
 
   public async execute(params: IParams): Promise<IResponse> {
     const { email, password } = params;

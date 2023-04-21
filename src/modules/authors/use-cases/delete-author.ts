@@ -6,7 +6,7 @@ interface IParams {
 }
 
 export class DeleteAuthor {
-  constructor(private authorsRepository: AuthorsRepository) {}
+  constructor(private readonly authorsRepository: AuthorsRepository) {}
 
   public async execute(params: IParams): Promise<void> {
     const { authorId } = params;

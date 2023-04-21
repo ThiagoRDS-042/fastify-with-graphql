@@ -11,7 +11,7 @@ interface IResponse {
 }
 
 export class ShowAuthor {
-  constructor(private authorsRepository: AuthorsRepository) {}
+  constructor(private readonly authorsRepository: AuthorsRepository) {}
 
   public async execute(params: IParams): Promise<IResponse> {
     const { authorId } = params;
