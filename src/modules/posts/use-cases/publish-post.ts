@@ -21,6 +21,14 @@ export class PublishPost {
       );
     }
 
+    if (post.publishedAt) {
+      throw new AppError(
+        "Post already is published.",
+        codes.FORBIDDEN,
+        errors.FORBIDDEN
+      );
+    }
+
     post.publish();
 
     await this.postsRepository.save(post);

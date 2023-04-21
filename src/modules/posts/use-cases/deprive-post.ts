@@ -21,6 +21,14 @@ export class DeprivePost {
       );
     }
 
+    if (!post.publishedAt) {
+      throw new AppError(
+        "Post already is deprived.",
+        codes.FORBIDDEN,
+        errors.FORBIDDEN
+      );
+    }
+
     post.deprive();
 
     await this.postsRepository.save(post);
