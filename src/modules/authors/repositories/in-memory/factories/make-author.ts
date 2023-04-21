@@ -8,6 +8,9 @@ export const makeAuthor = (override: Override = {}): Author => {
     email: "example@mail.com.br",
     password: "password",
     phone: "12345678",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    deletedAt: null,
     ...override,
   });
 };
