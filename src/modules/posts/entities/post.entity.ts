@@ -71,6 +71,14 @@ export class Post extends BaseEntity<PostProps> {
     return this.props.content;
   }
 
+  public set category(category: PostCategoryType) {
+    this.props.category = category;
+  }
+
+  public get category(): PostCategoryType {
+    return this.props.category;
+  }
+
   public set description(description: string | null | undefined) {
     this.props.description = description;
   }
