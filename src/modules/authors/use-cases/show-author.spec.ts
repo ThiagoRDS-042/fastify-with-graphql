@@ -16,7 +16,6 @@ describe("Show author use case", () => {
 
   it("Should be able show a author", async () => {
     const authorTmp = makeAuthor();
-
     await authorsRepository.create(authorTmp);
 
     const { author } = await sut.execute({

@@ -16,7 +16,6 @@ describe("Update author use case", () => {
 
   it("Should be able update a author", async () => {
     const authorTmp = makeAuthor();
-
     await authorsRepository.create(authorTmp);
 
     const email = "example@mail.com.br";
@@ -52,7 +51,6 @@ describe("Update author use case", () => {
     await authorsRepository.create(makeAuthor({ email }));
 
     const authorTmp = makeAuthor();
-
     await authorsRepository.create(authorTmp);
 
     await expect(() =>

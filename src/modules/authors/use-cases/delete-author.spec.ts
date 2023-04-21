@@ -16,7 +16,6 @@ describe("Delete author use case", () => {
 
   it("Should be able delete a author", async () => {
     const authorTmp = makeAuthor();
-
     await authorsRepository.create(authorTmp);
 
     await sut.execute({
