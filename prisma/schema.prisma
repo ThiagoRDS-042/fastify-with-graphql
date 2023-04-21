@@ -16,6 +16,31 @@ model Author {
   createdAt DateTime  @default(now()) @map("created_at")
   updatedAt DateTime  @updatedAt @map("updated_at")
   deletedAt DateTime? @map("deleted_at")
+  posts     Post[]
 
   @@map("authors")
+}
+
+enum Category {
+  social
+  fashion
+  technology
+  games
+  nature
+}
+
+model Post {
+  id          String    @id @default(uuid())
+  title       String
+  tag         String    @unique
+  content     String
+  description String?
+  category    Category
+  authorId    String
+  author      Author    @relation(fields: [authorId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  publishedAt DateTime? @map("published_at")
+
+  @@map("posts")
 }
