@@ -37,7 +37,6 @@ const schema = buildSchemaSync({
 });
 
 app.register(mercurius, {
-  graphiql: true,
   schema,
   errorFormatter,
 });
