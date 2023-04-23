@@ -6,6 +6,15 @@ query ShowAuthor {
       name
       email
       phone
+      posts {
+        id
+        title
+        content
+        description
+        tag
+        category
+        publishedAt
+      }
     }
   }
 }

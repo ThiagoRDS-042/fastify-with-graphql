@@ -6,6 +6,15 @@ mutation CreateAuthor($createAuthor: CreateAuthorInput!) {
       name
       email
       phone
+      posts {
+        id
+        title
+        content
+        description
+        tag
+        category
+        publishedAt
+      }
     }
   }
 }

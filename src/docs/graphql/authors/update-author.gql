@@ -6,6 +6,15 @@ mutation UpdateAuthor($updateAuthor: UpdateAuthorInput!) {
       name
       phone
       email
+      posts {
+        id
+        title
+        content
+        description
+        tag
+        category
+        publishedAt
+      }
     }
   }
 }

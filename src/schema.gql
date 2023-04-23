@@ -17,6 +17,7 @@ type Author {
   id: ID!
   name: String!
   phone: String!
+  posts: [Post!]!
 }
 
 type AuthorModel {
