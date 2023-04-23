@@ -24,7 +24,7 @@ query ListPosts($listPosts: ListPostsInput) {
   "listPosts": {
     "authorIdEquals": "d9219023-17e9-4c86-a2b6-4071d5caa85e",
     "categoryEquals": "games",
-    "publish": false,
+    "publish": true,
     "tagEquals": "this-is-my-first-post",
     "titleContains": "This is my first post"
   }

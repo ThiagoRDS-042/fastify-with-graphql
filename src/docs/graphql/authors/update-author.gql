@@ -22,7 +22,6 @@ mutation UpdateAuthor($updateAuthor: UpdateAuthorInput!) {
 # Variables
 {
   "updateAuthor": {
-    "authorId": "d9219023-17e9-4c86-a2b6-4071d5caa85e",
     "name": "Author test",
     "email": "author.test@mail.com.br",
     "phone": "12345678",
