@@ -55,6 +55,14 @@ input ListAuthorsInput {
   nameContains: String
 }
 
+input ListPostsInput {
+  authorIdEquals: String
+  categoryEquals: PostCategoryEnum
+  publish: Boolean
+  tagEquals: String
+  titleContains: String
+}
+
 type Mutation {
   authenticate(authenticateInput: AuthenticateInput!): AuthenticateModel!
   createAuthor(createAuthorInput: CreateAuthorInput!): AuthorModel!
@@ -90,12 +98,17 @@ type PostModel {
   post: Post!
 }
 
+type PostsModel {
+  posts: [Post!]!
+}
+
 input PublishPostInput {
   postId: ID!
 }
 
 type Query {
   listAuthors(listAuthorsInput: ListAuthorsInput): AuthorsModel!
+  listPosts(listPostsInput: ListPostsInput): PostsModel!
   showAuthor: AuthorModel!
   showPost(showPostInput: ShowPostInput!): PostModel!
 }
