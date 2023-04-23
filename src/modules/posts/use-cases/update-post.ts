@@ -75,6 +75,7 @@ export class UpdatePost {
         description,
         tag,
         authorId,
+        publishedAt: postExist.publishedAt,
       },
       postId
     );
