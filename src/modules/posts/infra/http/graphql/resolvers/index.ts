@@ -6,6 +6,7 @@ import { PublishPostResolver } from "./publish-post.resolver";
 import { DeprivePostResolver } from "./deprive-post.resolver";
 import { UpdatePostResolver } from "./update-post.resolver";
 import { ListPostsResolver } from "./list-posts.resolver";
+import { AuthorFieldResolver } from "./author-field.resolver";
 
 export const postResolvers: NonEmptyArray<
   | typeof CreatePostResolver
@@ -14,6 +15,7 @@ export const postResolvers: NonEmptyArray<
   | typeof DeprivePostResolver
   | typeof UpdatePostResolver
   | typeof ListPostsResolver
+  | typeof AuthorFieldResolver
 > = [
   CreatePostResolver,
   ShowPostResolver,
@@ -21,4 +23,5 @@ export const postResolvers: NonEmptyArray<
   DeprivePostResolver,
   UpdatePostResolver,
   ListPostsResolver,
+  AuthorFieldResolver,
 ];

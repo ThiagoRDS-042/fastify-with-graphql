@@ -1,6 +1,7 @@
 import { Field, ID, ObjectType, registerEnumType } from "type-graphql";
 
 import { PostCategoryType } from "@modules/posts/entities/post.entity";
+import { Author } from "@modules/authors/infra/http/graphql/models/author";
 
 export enum PostCategoryEnum {
   social = "social",
@@ -40,4 +41,7 @@ export class Post {
 
   @Field(() => Date, { nullable: true })
   publishedAt?: Date | null;
+
+  @Field(() => Author)
+  author?: Author;
 }
