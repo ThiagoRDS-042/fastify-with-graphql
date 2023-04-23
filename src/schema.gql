@@ -127,7 +127,6 @@ input UpdateAuthorInput {
 }
 
 input UpdatePostInput {
-  authorId: ID!
   category: PostCategoryEnum!
   content: String!
   description: String
