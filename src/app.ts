@@ -10,6 +10,7 @@ import { buildSchemaSync } from "type-graphql";
 import { env } from "@env";
 import { loggerConfig } from "@configs/logger";
 import { errorFormatter } from "@shared/errors";
+import { postResolvers } from "@modules/posts/infra/http/graphql/resolvers";
 import { authorResolvers } from "@modules/authors/infra/http/graphql/resolvers";
 
 export const app = Fastify({
@@ -31,7 +32,7 @@ app.register(fastifyJwt, {
 });
 
 const schema = buildSchemaSync({
-  resolvers: [...authorResolvers],
+  resolvers: [...authorResolvers, ...postResolvers],
   emitSchemaFile: path.resolve(__dirname, "schema.gql"),
 });
 
