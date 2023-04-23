@@ -1,0 +1,24 @@
+# Mutation
+mutation CreatePost($createPost: CreatePostInput!) {
+  createPost(createPostInput: $createPost) {
+    post {
+      id
+      title
+      content
+      tag
+      description
+      authorId
+      publishedAt
+    }
+  }
+}
+
+# Variables
+{
+  "createPost": {
+    "title": "This is my first post",
+    "content": "Test post.",
+    "category": "social",
+    "description": null
+  }
+}

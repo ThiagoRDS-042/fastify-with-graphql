@@ -1,0 +1,21 @@
+# Query
+query ShowPost($showPost: ShowPostInput!) {
+  showPost(showPostInput: $showPost) {
+    post {
+      id
+      title
+      content
+      description
+      tag
+      authorId
+      publishedAt
+    }
+  }
+}
+
+# Variables
+{
+  "showPost": {
+    "postId": "6651950e-f277-4f0b-9bd8-69a3e2646007"
+  }
+}

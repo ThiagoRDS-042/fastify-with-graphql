@@ -34,6 +34,22 @@ input CreateAuthorInput {
   phone: String!
 }
 
+input CreatePostInput {
+  category: PostCategoryEnum!
+  content: String!
+  description: String
+  title: String!
+}
+
+"""
+The javascript `Date` as string. Type represents date and time as the ISO Date string.
+"""
+scalar DateTime
+
+input DeprivePostInput {
+  postId: ID!
+}
+
 input ListAuthorsInput {
   emailContains: String
   nameContains: String
@@ -42,13 +58,50 @@ input ListAuthorsInput {
 type Mutation {
   authenticate(authenticateInput: AuthenticateInput!): AuthenticateModel!
   createAuthor(createAuthorInput: CreateAuthorInput!): AuthorModel!
+  createPost(createPostInput: CreatePostInput!): PostModel!
   deleteAuthor: Boolean!
+  deprivePost(deprivePostInput: DeprivePostInput!): Boolean!
+  publishPost(publishPostInput: PublishPostInput!): Boolean!
   updateAuthor(updateAuthorInput: UpdateAuthorInput!): AuthorModel!
+  updatePost(updatePostInput: UpdatePostInput!): PostModel!
+}
+
+type Post {
+  authorId: String!
+  category: PostCategoryEnum!
+  content: String!
+  description: String
+  id: ID!
+  publishedAt: DateTime
+  tag: String!
+  title: String!
+}
+
+"""Available post categories on model"""
+enum PostCategoryEnum {
+  fashion
+  games
+  nature
+  social
+  technology
+}
+
+type PostModel {
+  post: Post!
+}
+
+input PublishPostInput {
+  postId: ID!
 }
 
 type Query {
   listAuthors(listAuthorsInput: ListAuthorsInput): AuthorsModel!
   showAuthor: AuthorModel!
+  showPost(showPostInput: ShowPostInput!): PostModel!
+}
+
+input ShowPostInput {
+  postId: ID!
 }
 
 input UpdateAuthorInput {
@@ -56,4 +109,13 @@ input UpdateAuthorInput {
   name: String!
   password: String!
   phone: String!
+}
+
+input UpdatePostInput {
+  authorId: ID!
+  category: PostCategoryEnum!
+  content: String!
+  description: String
+  postId: ID!
+  title: String!
 }
