@@ -7,9 +7,14 @@ query ListPosts($listPosts: ListPostsInput) {
       content
       description
       tag
-      authorId
       category
       publishedAt
+      author {
+        id
+        name
+        email
+        phone
+      }
     }
   }
 }

@@ -7,8 +7,13 @@ mutation CreatePost($createPost: CreatePostInput!) {
       content
       tag
       description
-      authorId
       publishedAt
+      author {
+        id
+        name
+        email
+        phone
+      }
     }
   }
 }

@@ -7,8 +7,13 @@ query ShowPost($showPost: ShowPostInput!) {
       content
       description
       tag
-      authorId
       publishedAt
+      author {
+        id
+        name
+        email
+        phone
+      }
     }
   }
 }
