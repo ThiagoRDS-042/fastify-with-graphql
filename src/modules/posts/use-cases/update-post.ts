@@ -3,10 +3,8 @@ import slugify from "slugify";
 import { AppError, errors, codes } from "@shared/errors";
 import { Post, PostCategoryType } from "../entities/post.entity";
 import { PostsRepository } from "../repositories/posts-repository";
-import { AuthorsRepository } from "@modules/authors/repositories/authors-repository";
 
 interface IParams {
-  authorId: string;
   postId: string;
   title: string;
   content: string;
@@ -19,23 +17,10 @@ interface IResponse {
 }
 
 export class UpdatePost {
-  constructor(
-    private readonly postsRepository: PostsRepository,
-    private readonly authorsRepository: AuthorsRepository
-  ) {}
+  constructor(private readonly postsRepository: PostsRepository) {}
 
   public async execute(params: IParams): Promise<IResponse> {
-    const { category, content, title, description, authorId, postId } = params;
-
-    const authorExist = await this.authorsRepository.findById(authorId);
-
-    if (authorExist === null) {
-      throw new AppError(
-        "Author does not exist.",
-        codes.RESOURCE_NOT_FOUND,
-        errors.NOT_FOUND
-      );
-    }
+    const { category, content, title, description, postId } = params;
 
     const postExist = await this.postsRepository.findById(postId);
 
@@ -44,14 +29,6 @@ export class UpdatePost {
         "Post does not exist.",
         codes.RESOURCE_NOT_FOUND,
         errors.NOT_FOUND
-      );
-    }
-
-    if (postExist.authorId !== authorId) {
-      throw new AppError(
-        "Author is not the owner of the post.",
-        codes.FORBIDDEN,
-        errors.FORBIDDEN
       );
     }
 
@@ -74,7 +51,7 @@ export class UpdatePost {
         title,
         description,
         tag,
-        authorId,
+        authorId: postExist.authorId,
         publishedAt: postExist.publishedAt,
       },
       postId

@@ -7,9 +7,6 @@ export class UpdatePostInput {
   @Field(() => ID)
   postId: string;
 
-  @Field(() => ID)
-  authorId: string;
-
   @Field(() => String)
   title: string;
 
