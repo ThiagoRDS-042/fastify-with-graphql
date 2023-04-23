@@ -19,22 +19,6 @@ export class InMemoryPostsRepository implements PostsRepository {
     }
   }
 
-  public async publish(postId: string): Promise<void> {
-    const postIndex = this.posts.findIndex((item) => item.id === postId);
-
-    if (postIndex >= 0) {
-      this.posts[postIndex].publish();
-    }
-  }
-
-  public async deprive(postId: string): Promise<void> {
-    const postIndex = this.posts.findIndex((item) => item.id === postId);
-
-    if (postIndex >= 0) {
-      this.posts[postIndex].deprive();
-    }
-  }
-
   public async findById(postId: string): Promise<Post | null> {
     const post = this.posts.find((item) => item.id === postId);
 

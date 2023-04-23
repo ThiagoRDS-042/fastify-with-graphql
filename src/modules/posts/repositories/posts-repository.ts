@@ -10,8 +10,6 @@ export interface IOptions {
 
 export interface PostsRepository {
   create(post: Post): Promise<void>;
-  publish(postId: string): Promise<void>;
-  deprive(postId: string): Promise<void>;
   save(post: Post): Promise<void>;
   findById(postId: string): Promise<Post | null>;
   findByTag(tag: string): Promise<Post | null>;
