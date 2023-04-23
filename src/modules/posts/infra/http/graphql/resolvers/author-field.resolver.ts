@@ -1,3 +1,4 @@
+import { z } from "zod";
 import { FieldResolver, Resolver, Root } from "type-graphql";
 
 import { Post } from "../models/post";
@@ -8,7 +9,15 @@ import { makeShowAuthor } from "@modules/authors/use-cases/factories/make-show-a
 export class AuthorFieldResolver {
   @FieldResolver(() => Author, { name: "author" })
   public async execute(@Root() post: Post): Promise<Author> {
-    const { authorId } = post;
+    const root = z.object({
+      props: z.object({
+        authorId: z.string().uuid(),
+      }),
+    });
+
+    const {
+      props: { authorId },
+    } = root.parse(post);
 
     const showAuthor = makeShowAuthor();
 
