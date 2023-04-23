@@ -1,11 +1,11 @@
-import { Field, InputType } from "type-graphql";
+import { Field, ID, InputType } from "type-graphql";
 
 import { PostCategoryEnum } from "../models/post";
 import { PostCategoryType } from "@modules/posts/entities/post.entity";
 
 @InputType()
 export class ListPostsInput {
-  @Field(() => String, { nullable: true })
+  @Field(() => ID, { nullable: true })
   authorIdEquals?: string;
 
   @Field(() => PostCategoryEnum, { nullable: true })
