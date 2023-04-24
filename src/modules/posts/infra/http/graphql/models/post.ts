@@ -33,6 +33,9 @@ export class Post {
   @Field(() => String)
   tag: string;
 
+  @Field(() => Boolean)
+  isActive: boolean;
+
   @Field(() => String)
   authorId: string;
 

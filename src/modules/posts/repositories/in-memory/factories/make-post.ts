@@ -14,6 +14,7 @@ export const makePost = (override: Override = {}): Post => {
     createdAt: new Date(),
     updatedAt: new Date(),
     publishedAt: null,
+    isActive: true,
     ...override,
   });
 };

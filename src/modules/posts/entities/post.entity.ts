@@ -14,6 +14,7 @@ export interface PostProps {
   description?: string | null;
   tag: string;
   authorId: string;
+  isActive: boolean;
   category: PostCategoryType;
   createdAt?: Date;
   updatedAt?: Date;
@@ -69,6 +70,18 @@ export class Post extends BaseEntity<PostProps> {
 
   public get content(): string {
     return this.props.content;
+  }
+
+  public active() {
+    this.props.isActive = true;
+  }
+
+  public inactive() {
+    this.props.isActive = false;
+  }
+
+  public get isActive(): boolean {
+    return this.props.isActive;
   }
 
   public set category(category: PostCategoryType) {

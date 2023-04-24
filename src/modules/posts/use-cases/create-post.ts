@@ -55,6 +55,7 @@ export class CreatePost {
       description,
       tag,
       authorId,
+      isActive: true,
     });
 
     await this.postsRepository.create(post);

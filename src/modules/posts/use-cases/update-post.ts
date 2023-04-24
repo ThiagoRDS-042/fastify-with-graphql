@@ -51,6 +51,7 @@ export class UpdatePost {
         title,
         description,
         tag,
+        isActive: postExist.isActive,
         authorId: postExist.authorId,
         publishedAt: postExist.publishedAt,
       },
