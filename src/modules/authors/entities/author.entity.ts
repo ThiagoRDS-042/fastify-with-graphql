@@ -74,6 +74,10 @@ export class Author extends BaseEntity<AuthorProps> {
     this.props.deletedAt = new Date();
   }
 
+  public active() {
+    this.props.deletedAt = null;
+  }
+
   public get deletedAt(): Date | null | undefined {
     return this.props.deletedAt;
   }
