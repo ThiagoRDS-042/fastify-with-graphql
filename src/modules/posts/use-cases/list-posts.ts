@@ -6,6 +6,7 @@ interface IParams {
   tagEquals?: string;
   categoryEquals?: PostCategoryType;
   publish?: boolean;
+  isActive?: boolean;
   authorIdEquals?: string;
 }
 
@@ -23,6 +24,7 @@ export class ListPosts {
       publish,
       tagEquals,
       titleContains,
+      isActive,
     } = params;
 
     const posts = await this.postsRepository.findMany({
@@ -31,6 +33,7 @@ export class ListPosts {
       publish,
       tagEquals,
       titleContains,
+      isActive,
     });
 
     return { posts };

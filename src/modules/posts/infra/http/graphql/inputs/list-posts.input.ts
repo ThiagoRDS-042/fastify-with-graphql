@@ -11,9 +11,6 @@ export class ListPostsInput {
   @Field(() => PostCategoryEnum, { nullable: true })
   categoryEquals?: PostCategoryType;
 
-  @Field(() => Boolean, { nullable: true })
-  publish?: string;
-
   @Field(() => String, { nullable: true })
   tagEquals?: string;
 

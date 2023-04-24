@@ -21,7 +21,6 @@ export class ListPostsResolver {
         categoryEquals: z
           .enum(["social", "fashion", "technology", "games", "nature"])
           .optional(),
-        publish: z.boolean().optional(),
         authorIdEquals: z.string().uuid().optional(),
       })
       .optional();
@@ -30,14 +29,12 @@ export class ListPostsResolver {
 
     let authorIdEquals: string | undefined = undefined;
     let categoryEquals: PostCategoryType | undefined = undefined;
-    let publish: boolean | undefined = undefined;
     let tagEquals: string | undefined = undefined;
     let titleContains: string | undefined = undefined;
 
     if (options) {
       authorIdEquals = options.authorIdEquals;
       categoryEquals = options.categoryEquals;
-      publish = options.publish;
       tagEquals = options.tagEquals;
       titleContains = options.titleContains;
     }
@@ -47,9 +44,10 @@ export class ListPostsResolver {
     const { posts } = await listPosts.execute({
       authorIdEquals,
       categoryEquals,
-      publish,
       tagEquals,
       titleContains,
+      publish: true,
+      isActive: true,
     });
 
     return { posts };
