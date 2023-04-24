@@ -7,6 +7,7 @@ import {
   ICurrentAuthor,
 } from "@shared/infra/http/graphql/decorators/current-author";
 import { ensureAuthenticated } from "@shared/infra/http/graphql/middlewares/ensureAuthenticated";
+import { makeInactivePostsByAuthorId } from "@modules/posts/use-cases/factories/make-inactive-posts-by-author-id";
 
 @Resolver(() => Boolean)
 export class DeleteAuthorResolver {
@@ -24,6 +25,12 @@ export class DeleteAuthorResolver {
     const deleteAuthor = makeDeleteAuthor();
 
     await deleteAuthor.execute({
+      authorId,
+    });
+
+    const inactivePostsByAuthorId = makeInactivePostsByAuthorId();
+
+    await inactivePostsByAuthorId.execute({
       authorId,
     });
 
