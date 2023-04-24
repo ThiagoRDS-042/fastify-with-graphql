@@ -11,4 +11,5 @@ export interface AuthorsRepository {
   findByEmail(email: string): Promise<Author | null>;
   findById(authorId: string): Promise<Author | null>;
   findMany(options?: IOpions): Promise<Author[]>;
+  findIn(authorIds: string[]): Promise<Author[]>;
 }

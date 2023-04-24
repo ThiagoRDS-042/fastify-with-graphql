@@ -76,4 +76,16 @@ export class PrismaAuthorsRepository implements AuthorsRepository {
 
     return authors.map(PrismaAuthorMapper.toDomain);
   }
+
+  public async findIn(authorIds: string[]): Promise<Author[]> {
+    const authors = await prisma.author.findMany({
+      where: {
+        id: {
+          in: authorIds,
+        },
+      },
+    });
+
+    return authors.map(PrismaAuthorMapper.toDomain);
+  }
 }
