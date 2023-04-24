@@ -8,7 +8,7 @@ import { DeleteAuthorResolver } from "./delete-author.resolver";
 import { UpdateAuthorResolver } from "./update-author.resolver";
 import { PostsFieldResolver } from "./posts-field.resolver";
 
-export const authorResolvers: NonEmptyArray<
+type AuthorResolversType = NonEmptyArray<
   | typeof CreateAuthorResolver
   | typeof AuthenticateResolver
   | typeof ShowAuthorResolver
@@ -16,7 +16,9 @@ export const authorResolvers: NonEmptyArray<
   | typeof DeleteAuthorResolver
   | typeof UpdateAuthorResolver
   | typeof PostsFieldResolver
-> = [
+>;
+
+export const authorResolvers: AuthorResolversType = [
   CreateAuthorResolver,
   AuthenticateResolver,
   ShowAuthorResolver,

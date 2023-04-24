@@ -11,7 +11,7 @@ import { ActivePostResolver } from "./active-post.resolver";
 import { InactivePostResolver } from "./inactive-post.resolver";
 import { ListPostsAuthorResolver } from "./list-posts-author.resolver";
 
-export const postResolvers: NonEmptyArray<
+type PostResolversType = NonEmptyArray<
   | typeof CreatePostResolver
   | typeof ShowPostResolver
   | typeof PublishPostResolver
@@ -22,7 +22,9 @@ export const postResolvers: NonEmptyArray<
   | typeof AuthorFieldResolver
   | typeof ActivePostResolver
   | typeof InactivePostResolver
-> = [
+>;
+
+export const postResolvers: PostResolversType = [
   CreatePostResolver,
   ShowPostResolver,
   PublishPostResolver,
