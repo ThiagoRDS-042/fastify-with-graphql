@@ -85,4 +85,12 @@ export class InMemoryPostsRepository implements PostsRepository {
 
     return posts;
   }
+
+  public async findIn(authorIds: string[]): Promise<Post[]> {
+    const posts = this.posts.filter((item) =>
+      authorIds.includes(item.authorId)
+    );
+
+    return posts;
+  }
 }

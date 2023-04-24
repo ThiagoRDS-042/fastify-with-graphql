@@ -15,4 +15,5 @@ export interface PostsRepository {
   findById(postId: string): Promise<Post | null>;
   findByTag(tag: string): Promise<Post | null>;
   findMany(options?: IOptions): Promise<Post[]>;
+  findIn(authorIds: string[]): Promise<Post[]>;
 }

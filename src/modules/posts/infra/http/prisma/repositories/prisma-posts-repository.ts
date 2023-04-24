@@ -91,4 +91,16 @@ export class PrismaPostsRepository implements PostsRepository {
 
     return posts.map(PrismaPostMapper.toDomain);
   }
+
+  public async findIn(authorIds: string[]): Promise<Post[]> {
+    const posts = await prisma.post.findMany({
+      where: {
+        authorId: {
+          in: authorIds,
+        },
+      },
+    });
+
+    return posts.map(PrismaPostMapper.toDomain);
+  }
 }
