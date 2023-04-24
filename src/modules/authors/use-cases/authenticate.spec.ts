@@ -1,4 +1,5 @@
 import { hash } from "bcryptjs";
+import { subDays } from "date-fns";
 import { beforeEach, describe, expect, it } from "vitest";
 
 import { Authenticate } from "./authenticate";
@@ -27,6 +28,41 @@ describe("Authenticate use case", () => {
 
     expect(author).toEqual(expect.any(Object));
     expect(author.email).toEqual(email);
+  });
+
+  it("Should be able to authenticate and active a author account", async () => {
+    const email = "example@mail.com.br";
+    const password = "password";
+
+    await authorsRepository.create(
+      makeAuthor({
+        email,
+        password: await hash(password, 6),
+        deletedAt: new Date(),
+      })
+    );
+
+    const { author } = await sut.execute({ email, password });
+
+    expect(author).toEqual(expect.any(Object));
+    expect(author.email).toEqual(email);
+  });
+
+  it("Should not be able to authenticate and active a author account", async () => {
+    const email = "example@mail.com.br";
+    const password = "password";
+
+    await authorsRepository.create(
+      makeAuthor({
+        email,
+        password: await hash(password, 6),
+        deletedAt: subDays(new Date(), 31),
+      })
+    );
+
+    await expect(() => sut.execute({ email, password })).rejects.toBeInstanceOf(
+      AppError
+    );
   });
 
   it("should not be able to authenticate with wrong email", async () => {
