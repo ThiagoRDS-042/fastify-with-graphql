@@ -1,0 +1,11 @@
+# Mutation
+mutation ActivePost($activePost: ActivePostInput!) {
+  activePost(activePostInput: $activePost)
+}
+
+# Variables
+{
+	"activePost": {
+		"postId": "93206607-902c-4e0d-82ba-369f6add64e3"
+	}
+}
