@@ -10,6 +10,7 @@ import { buildSchemaSync } from "type-graphql";
 import { env } from "@env";
 import { loggerConfig } from "@configs/logger";
 import { errorFormatter } from "@shared/errors";
+import { context } from "@shared/infra/http/graphql/context";
 import { postResolvers } from "@modules/posts/infra/http/graphql/resolvers";
 import { authorResolvers } from "@modules/authors/infra/http/graphql/resolvers";
 
@@ -39,4 +40,5 @@ const schema = buildSchemaSync({
 app.register(mercurius, {
   schema,
   errorFormatter,
+  context,
 });
