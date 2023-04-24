@@ -9,6 +9,7 @@ import { ListPostsResolver } from "./list-posts.resolver";
 import { AuthorFieldResolver } from "./author-field.resolver";
 import { ActivePostResolver } from "./active-post.resolver";
 import { InactivePostResolver } from "./inactive-post.resolver";
+import { ListPostsAuthorResolver } from "./list-posts-author.resolver";
 
 export const postResolvers: NonEmptyArray<
   | typeof CreatePostResolver
@@ -17,6 +18,7 @@ export const postResolvers: NonEmptyArray<
   | typeof DeprivePostResolver
   | typeof UpdatePostResolver
   | typeof ListPostsResolver
+  | typeof ListPostsAuthorResolver
   | typeof AuthorFieldResolver
   | typeof ActivePostResolver
   | typeof InactivePostResolver
@@ -27,6 +29,7 @@ export const postResolvers: NonEmptyArray<
   DeprivePostResolver,
   UpdatePostResolver,
   ListPostsResolver,
+  ListPostsAuthorResolver,
   AuthorFieldResolver,
   ActivePostResolver,
   InactivePostResolver,
