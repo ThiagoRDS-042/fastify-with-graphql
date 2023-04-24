@@ -1,0 +1,33 @@
+# Query
+query ListPostsAuthor($listPostsAuthor: ListPostsAuthorInput!) {
+	listPostsAuthor(listPostsAuthorInput: $listPostsAuthor) {
+		posts {
+			id
+			title
+			content
+			description
+			tag
+			category
+			publishedAt
+			isActive
+			author {
+				id
+				name
+				email
+				phone
+			}
+		}
+	}
+}
+
+# Variables
+{
+	"listPostsAuthor": {
+		"authorIdEquals": "477d709d-64fe-4b80-ba88-7caabc67485e",
+		"categoryEquals": "games",
+		"tagEquals": "this-is-my-first-post",
+		"titleContains": "This is my first post",
+		"publish": true,
+		"isActive": true
+	}
+}

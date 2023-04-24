@@ -64,10 +64,18 @@ input ListAuthorsInput {
   nameContains: String
 }
 
+input ListPostsAuthorInput {
+  authorIdEquals: ID!
+  categoryEquals: PostCategoryEnum
+  isActive: Boolean
+  publish: Boolean
+  tagEquals: String
+  titleContains: String
+}
+
 input ListPostsInput {
   authorIdEquals: ID
   categoryEquals: PostCategoryEnum
-  publish: Boolean
   tagEquals: String
   titleContains: String
 }
@@ -122,6 +130,7 @@ input PublishPostInput {
 type Query {
   listAuthors(listAuthorsInput: ListAuthorsInput): AuthorsModel!
   listPosts(listPostsInput: ListPostsInput): PostsModel!
+  listPostsAuthor(listPostsAuthorInput: ListPostsAuthorInput!): PostsModel!
   showAuthor: AuthorModel!
   showPost(showPostInput: ShowPostInput!): PostModel!
 }
