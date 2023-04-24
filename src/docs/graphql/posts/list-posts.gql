@@ -9,6 +9,7 @@ query ListPosts($listPosts: ListPostsInput) {
       tag
       category
       publishedAt
+      isActive
       author {
         id
         name

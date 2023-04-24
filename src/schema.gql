@@ -3,6 +3,10 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+input ActivePostInput {
+  postId: ID!
+}
+
 input AuthenticateInput {
   email: String!
   password: String!
@@ -51,6 +55,10 @@ input DeprivePostInput {
   postId: ID!
 }
 
+input InactivePostInput {
+  postId: ID!
+}
+
 input ListAuthorsInput {
   emailContains: String
   nameContains: String
@@ -65,11 +73,13 @@ input ListPostsInput {
 }
 
 type Mutation {
+  activePost(activePostInput: ActivePostInput!): Boolean!
   authenticate(authenticateInput: AuthenticateInput!): AuthenticateModel!
   createAuthor(createAuthorInput: CreateAuthorInput!): AuthorModel!
   createPost(createPostInput: CreatePostInput!): PostModel!
   deleteAuthor: Boolean!
   deprivePost(deprivePostInput: DeprivePostInput!): Boolean!
+  inactivePost(activePostInput: InactivePostInput!): Boolean!
   publishPost(publishPostInput: PublishPostInput!): Boolean!
   updateAuthor(updateAuthorInput: UpdateAuthorInput!): AuthorModel!
   updatePost(updatePostInput: UpdatePostInput!): PostModel!
@@ -82,6 +92,7 @@ type Post {
   content: String!
   description: String
   id: ID!
+  isActive: Boolean!
   publishedAt: DateTime
   tag: String!
   title: String!

@@ -8,6 +8,7 @@ query ShowPost($showPost: ShowPostInput!) {
       description
       tag
       publishedAt
+      isActive
       author {
         id
         name

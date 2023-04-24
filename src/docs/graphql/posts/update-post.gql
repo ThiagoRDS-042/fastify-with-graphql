@@ -9,6 +9,7 @@ mutation UpdatePost($updatePost: UpdatePostInput!) {
       tag
       category
       publishedAt
+      isActive
       author {
         id
         name
