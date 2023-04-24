@@ -1,4 +1,5 @@
 import { compare } from "bcryptjs";
+import { differenceInDays } from "date-fns";
 
 import { Author } from "../entities/author.entity";
 import { AppError, errors, codes } from "@shared/errors";
@@ -23,7 +24,7 @@ export class Authenticate {
 
     if (author === null) {
       throw new AppError(
-        "Invalid credentials",
+        "Invalid credentials.",
         codes.INVALID_CREDENTIALS,
         errors.UNAUTHORIZED
       );
@@ -33,10 +34,24 @@ export class Authenticate {
 
     if (!doesPasswordMatches) {
       throw new AppError(
-        "Invalid credentials",
+        "Invalid credentials.",
         codes.INVALID_CREDENTIALS,
         errors.UNAUTHORIZED
       );
+    }
+
+    if (differenceInDays(new Date(), author.deletedAt) > 30) {
+      throw new AppError(
+        "Author account has been deleted.",
+        codes.FORBIDDEN,
+        errors.FORBIDDEN
+      );
+    }
+
+    if (author.deletedAt) {
+      author.active();
+
+      await this.authorsRepository.save(author);
     }
 
     return { author };
