@@ -5,6 +5,7 @@ export interface IOptions {
   tagEquals?: string;
   categoryEquals?: PostCategoryType;
   publish?: boolean;
+  isActive?: boolean;
   authorIdEquals?: string;
 }
 

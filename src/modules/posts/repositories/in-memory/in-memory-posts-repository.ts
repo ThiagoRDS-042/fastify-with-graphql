@@ -46,6 +46,7 @@ export class InMemoryPostsRepository implements PostsRepository {
       publish,
       tagEquals,
       titleContains,
+      isActive,
     } = options;
 
     let posts = this.posts;
@@ -70,12 +71,16 @@ export class InMemoryPostsRepository implements PostsRepository {
       );
     }
 
-    if (publish !== undefined && publish === true) {
+    if (publish === true) {
       posts = posts.filter((item) => !!item.publishedAt);
+    } else if (publish === false) {
+      posts = posts.filter((item) => !item.publishedAt);
     }
 
-    if (publish !== undefined && publish === false) {
-      posts = posts.filter((item) => !item.publishedAt);
+    if (isActive === true) {
+      posts = posts.filter((item) => item.isActive);
+    } else if (isActive === false) {
+      posts = posts.filter((item) => !item.isActive);
     }
 
     return posts;

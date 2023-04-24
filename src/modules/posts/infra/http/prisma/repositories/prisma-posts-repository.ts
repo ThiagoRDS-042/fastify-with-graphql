@@ -51,6 +51,7 @@ export class PrismaPostsRepository implements PostsRepository {
       publish,
       tagEquals,
       titleContains,
+      isActive,
     } = options;
 
     let publishedAt = undefined;
@@ -84,6 +85,7 @@ export class PrismaPostsRepository implements PostsRepository {
           equals: titleContains,
         },
         publishedAt,
+        isActive,
       },
     });
 
