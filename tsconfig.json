@@ -28,6 +28,7 @@
       "@shared/*": ["./src/shared/*"],
       "@test/*": ["./test/*"],
       "@configs/*": ["./src/configs/*"],
+      "@docs/*": ["./src/docs/*"],
       "@env": ["./src/env"],
       "@app": ["./src/app"]
     }
