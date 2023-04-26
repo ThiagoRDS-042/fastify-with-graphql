@@ -43,3 +43,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
     - [Diagrama ERD](./src/docs/diagrams/diagram_erd.md)
 
 ### Autor
+
+---
+
+Feito por ❤️ Thiago Rodrigues 👋🏽
