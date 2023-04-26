@@ -1,5 +1,5 @@
 import { ListPosts } from "../list-posts";
-import { PrismaPostsRepository } from "@modules/posts/infra/http/prisma/repositories/prisma-posts-repository";
+import { PrismaPostsRepository } from "@modules/posts/infra/prisma/repositories/prisma-posts-repository";
 
 export const makeListPosts = (): ListPosts => {
   const postsRepository = new PrismaPostsRepository();

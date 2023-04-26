@@ -2,7 +2,7 @@ import DataLoader from "dataloader";
 
 import { Post } from "@modules/posts/entities/post.entity";
 import { PostsRepository } from "@modules/posts/repositories/posts-repository";
-import { PrismaPostsRepository } from "../../prisma/repositories/prisma-posts-repository";
+import { PrismaPostsRepository } from "../../../prisma/repositories/prisma-posts-repository";
 
 export class PostsDataLoader {
   private readonly postsRepository: PostsRepository;

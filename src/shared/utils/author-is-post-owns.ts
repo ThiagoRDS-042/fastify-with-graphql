@@ -1,4 +1,4 @@
-import { PrismaPostsRepository } from "@modules/posts/infra/http/prisma/repositories/prisma-posts-repository";
+import { PrismaPostsRepository } from "@modules/posts/infra/prisma/repositories/prisma-posts-repository";
 
 export const authorIsPostOwns = async (
   authorId: string,

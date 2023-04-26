@@ -1,5 +1,5 @@
 import { DeprivePost } from "../deprive-post";
-import { PrismaPostsRepository } from "@modules/posts/infra/http/prisma/repositories/prisma-posts-repository";
+import { PrismaPostsRepository } from "@modules/posts/infra/prisma/repositories/prisma-posts-repository";
 
 export const makeDeprivePost = (): DeprivePost => {
   const postsRepository = new PrismaPostsRepository();
