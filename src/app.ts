@@ -35,6 +35,7 @@ app.register(fastifyJwt, {
 const schema = buildSchemaSync({
   resolvers: [...authorResolvers, ...postResolvers],
   emitSchemaFile: path.resolve(__dirname, "schema.gql"),
+  validate: false,
 });
 
 app.register(mercurius, {
