@@ -38,7 +38,7 @@ const config: Config = {
   testEnvironment: "node",
   maxWorkers: 1,
   collectCoverageFrom: ["<rootDir>/src/modules/**/use-cases/*.ts"],
-  coverageDirectory: "<rootDir>/coverage/unit",
+  coverageDirectory: "<rootDir>/coverage",
 };
 
 export default config;
