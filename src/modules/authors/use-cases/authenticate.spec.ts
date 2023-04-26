@@ -1,10 +1,10 @@
 import { hash } from "bcryptjs";
 import { subDays } from "date-fns";
 
+import { AppError } from "@shared/errors";
 import { Authenticate } from "./authenticate";
 import { makeAuthor } from "../repositories/in-memory/factories/make-author";
 import { InMemoryAuthorsRepository } from "../repositories/in-memory/in-memory-authors-repository";
-import { AppError } from "@shared/errors";
 
 let authorsRepository: InMemoryAuthorsRepository;
 let sut: Authenticate;
