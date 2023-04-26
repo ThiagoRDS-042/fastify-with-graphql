@@ -4,7 +4,8 @@ export default defineConfig({
   entry: [
     "./src/**",
     "!./src/schema.gql",
-    "!./src/docs/diagrams/diagram_erd.md",
+    "!./src/docs/diagrams",
+    "!./src/docs/insomnia",
   ],
   splitting: false,
   sourcemap: true,
