@@ -1,4 +1,0 @@
-# Mutation
-mutation DeleteAuthor {
-  deleteAuthor
-}
