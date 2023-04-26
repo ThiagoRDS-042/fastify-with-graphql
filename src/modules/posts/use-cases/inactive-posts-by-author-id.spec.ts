@@ -1,5 +1,3 @@
-import { beforeEach, describe, expect, it } from "vitest";
-
 import { InactivePostsByAuthorId } from "./inative-posts-by-author-id";
 import { makePost } from "../repositories/in-memory/factories/make-post";
 import { makeAuthor } from "@modules/authors/repositories/in-memory/factories/make-author";

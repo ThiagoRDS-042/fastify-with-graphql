@@ -1,5 +1,3 @@
-import { beforeEach, describe, expect, it } from "vitest";
-
 import { AppError } from "@shared/errors";
 import { CreatePost } from "./create-post";
 import { makeAuthor } from "@modules/authors/repositories/in-memory/factories/make-author";

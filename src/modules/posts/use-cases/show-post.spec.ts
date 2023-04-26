@@ -1,5 +1,3 @@
-import { beforeEach, describe, expect, it } from "vitest";
-
 import { AppError } from "@shared/errors";
 import { ShowPost } from "./show-post";
 import { makePost } from "../repositories/in-memory/factories/make-post";

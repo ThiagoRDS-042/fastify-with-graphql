@@ -1,6 +1,5 @@
 import { hash } from "bcryptjs";
 import { subDays } from "date-fns";
-import { beforeEach, describe, expect, it } from "vitest";
 
 import { Authenticate } from "./authenticate";
 import { makeAuthor } from "../repositories/in-memory/factories/make-author";

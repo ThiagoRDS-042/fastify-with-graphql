@@ -1,5 +1,3 @@
-import { beforeEach, describe, expect, it } from "vitest";
-
 import { ListPosts } from "./list-posts";
 import { makePost } from "../repositories/in-memory/factories/make-post";
 import { InMemoryPostsRepository } from "../repositories/in-memory/in-memory-posts-repository";

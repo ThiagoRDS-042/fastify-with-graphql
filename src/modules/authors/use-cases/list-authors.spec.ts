@@ -1,5 +1,3 @@
-import { beforeEach, describe, expect, it } from "vitest";
-
 import { ListAuthors } from "./list-authors";
 import { makeAuthor } from "../repositories/in-memory/factories/make-author";
 import { InMemoryAuthorsRepository } from "../repositories/in-memory/in-memory-authors-repository";
