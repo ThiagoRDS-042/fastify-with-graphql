@@ -9,7 +9,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Typescript](https://www.typescriptlang.org)
 - [Postgres](https://www.postgresql.org)
 - [Prisma](https://www.prisma.io)
-- [Docker](https://www.docker.com)
 - [Jest](https://jestjs.io/pt-BR/)
 - [TypeGraphQL](https://typegraphql.com)
 - [Mercurius](https://mercurius.dev/#/)
