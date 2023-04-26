@@ -1,7 +1,7 @@
 import { Field, ID, ObjectType, registerEnumType } from "type-graphql";
 
-import { PostCategoryType } from "@modules/posts/entities/post.entity";
 import { Author } from "@modules/authors/infra/http/graphql/models/author";
+import type { PostCategoryType } from "@modules/posts/entities/post.entity";
 
 export enum PostCategoryEnum {
   social = "social",

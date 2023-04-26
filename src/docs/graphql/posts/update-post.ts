@@ -1,4 +1,4 @@
-import { PostCategoryType } from "@modules/posts/entities/post.entity";
+import type { PostCategoryType } from "@modules/posts/entities/post.entity";
 
 export const UPDATE_POST_MUTATION = `
   mutation UpdatePost($updatePost: UpdatePostInput!) {

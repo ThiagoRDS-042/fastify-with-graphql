@@ -1,4 +1,4 @@
-import { PostCategoryType } from "@modules/posts/entities/post.entity";
+import type { PostCategoryType } from "@modules/posts/entities/post.entity";
 
 export const CREATE_POST_MUTATION = `
   mutation CreatePost($createPost: CreatePostInput!) {

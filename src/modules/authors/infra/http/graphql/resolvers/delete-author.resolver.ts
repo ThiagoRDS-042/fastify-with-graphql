@@ -1,11 +1,9 @@
 import { z } from "zod";
 import { Mutation, Resolver, UseMiddleware } from "type-graphql";
 
+import { CurrentAuthor } from "@shared/infra/http/graphql/decorators/current-author";
+import type { ICurrentAuthor } from "@shared/infra/http/graphql/decorators/current-author";
 import { makeDeleteAuthor } from "@modules/authors/use-cases/factories/make-delete-author";
-import {
-  CurrentAuthor,
-  ICurrentAuthor,
-} from "@shared/infra/http/graphql/decorators/current-author";
 import { ensureAuthenticated } from "@shared/infra/http/graphql/middlewares/ensureAuthenticated";
 import { makeInactivePostsByAuthorId } from "@modules/posts/use-cases/factories/make-inactive-posts-by-author-id";
 

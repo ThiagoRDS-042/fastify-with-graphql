@@ -2,12 +2,10 @@ import { z } from "zod";
 import { Query, Resolver, UseMiddleware } from "type-graphql";
 
 import { AuthorModel } from "../models/author.model";
+import { CurrentAuthor } from "@shared/infra/http/graphql/decorators/current-author";
 import { makeShowAuthor } from "@modules/authors/use-cases/factories/make-show-author";
+import type { ICurrentAuthor } from "@shared/infra/http/graphql/decorators/current-author";
 import { ensureAuthenticated } from "@shared/infra/http/graphql/middlewares/ensureAuthenticated";
-import {
-  CurrentAuthor,
-  ICurrentAuthor,
-} from "@shared/infra/http/graphql/decorators/current-author";
 
 @Resolver(() => AuthorModel)
 export class ShowAuthorResolver {

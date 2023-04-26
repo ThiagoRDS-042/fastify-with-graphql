@@ -1,7 +1,7 @@
 import { Field, ID, InputType } from "type-graphql";
 
 import { PostCategoryEnum } from "../models/post";
-import { PostCategoryType } from "@modules/posts/entities/post.entity";
+import type { PostCategoryType } from "@modules/posts/entities/post.entity";
 
 @InputType()
 export class ListPostsInput {

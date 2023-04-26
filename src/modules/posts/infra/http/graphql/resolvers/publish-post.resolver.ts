@@ -4,12 +4,10 @@ import { Arg, Mutation, Resolver, UseMiddleware } from "type-graphql";
 import { AppError, codes, errors } from "@shared/errors";
 import { PublishPostInput } from "../inputs/publish-post.input";
 import { authorIsPostOwns } from "@shared/utils/author-is-post-owns";
+import { CurrentAuthor } from "@shared/infra/http/graphql/decorators/current-author";
 import { makePublishPost } from "@modules/posts/use-cases/factories/make-publish-post";
+import type { ICurrentAuthor } from "@shared/infra/http/graphql/decorators/current-author";
 import { ensureAuthenticated } from "@shared/infra/http/graphql/middlewares/ensureAuthenticated";
-import {
-  CurrentAuthor,
-  ICurrentAuthor,
-} from "@shared/infra/http/graphql/decorators/current-author";
 
 @Resolver(() => Boolean)
 export class PublishPostResolver {

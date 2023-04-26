@@ -3,12 +3,10 @@ import { Arg, Mutation, Resolver, UseMiddleware } from "type-graphql";
 
 import { AuthorModel } from "../models/author.model";
 import { UpdateAuthorInput } from "../inputs/update-author.input";
+import { CurrentAuthor } from "@shared/infra/http/graphql/decorators/current-author";
+import type { ICurrentAuthor } from "@shared/infra/http/graphql/decorators/current-author";
 import { makeUpdateAuthor } from "@modules/authors/use-cases/factories/make-update-author";
 import { ensureAuthenticated } from "@shared/infra/http/graphql/middlewares/ensureAuthenticated";
-import {
-  CurrentAuthor,
-  ICurrentAuthor,
-} from "@shared/infra/http/graphql/decorators/current-author";
 
 @Resolver(() => AuthorModel)
 export class UpdateAuthorResolver {

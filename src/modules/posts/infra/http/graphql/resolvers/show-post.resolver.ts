@@ -5,11 +5,9 @@ import { PostModel } from "../models/post.model";
 import { AppError, codes, errors } from "@shared/errors";
 import { ShowPostInput } from "../inputs/show-post.input";
 import { makeShowPost } from "@modules/posts/use-cases/factories/make-show-post";
+import { CurrentAuthor } from "@shared/infra/http/graphql/decorators/current-author";
+import type { ICurrentAuthor } from "@shared/infra/http/graphql/decorators/current-author";
 import { ensureAuthenticated } from "@shared/infra/http/graphql/middlewares/ensureAuthenticated";
-import {
-  CurrentAuthor,
-  ICurrentAuthor,
-} from "@shared/infra/http/graphql/decorators/current-author";
 
 @Resolver(() => PostModel)
 export class ShowPostResolver {

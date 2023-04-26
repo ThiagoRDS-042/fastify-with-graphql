@@ -4,10 +4,8 @@ import { Arg, Mutation, Resolver, UseMiddleware } from "type-graphql";
 import { PostModel } from "../models/post.model";
 import { CreatePostInput } from "../inputs/create-post.input";
 import { makeCreatePost } from "@modules/posts/use-cases/factories/make-create-post";
-import {
-  CurrentAuthor,
-  ICurrentAuthor,
-} from "@shared/infra/http/graphql/decorators/current-author";
+import { CurrentAuthor } from "@shared/infra/http/graphql/decorators/current-author";
+import type { ICurrentAuthor } from "@shared/infra/http/graphql/decorators/current-author";
 import { ensureAuthenticated } from "@shared/infra/http/graphql/middlewares/ensureAuthenticated";
 
 @Resolver(() => PostModel)

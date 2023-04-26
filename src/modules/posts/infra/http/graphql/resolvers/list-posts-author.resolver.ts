@@ -3,14 +3,12 @@ import { Arg, Query, Resolver, UseMiddleware } from "type-graphql";
 
 import { PostsModel } from "../models/posts.model";
 import { AppError, codes, errors } from "@shared/errors";
-import { PostCategoryType } from "@modules/posts/entities/post.entity";
 import { ListPostsAuthorInput } from "../inputs/list-posts-author.input";
+import type { PostCategoryType } from "@modules/posts/entities/post.entity";
 import { makeListPosts } from "@modules/posts/use-cases/factories/make-list-posts";
+import { CurrentAuthor } from "@shared/infra/http/graphql/decorators/current-author";
+import type { ICurrentAuthor } from "@shared/infra/http/graphql/decorators/current-author";
 import { ensureAuthenticated } from "@shared/infra/http/graphql/middlewares/ensureAuthenticated";
-import {
-  CurrentAuthor,
-  ICurrentAuthor,
-} from "@shared/infra/http/graphql/decorators/current-author";
 
 @Resolver(() => PostsModel)
 export class ListPostsAuthorResolver {

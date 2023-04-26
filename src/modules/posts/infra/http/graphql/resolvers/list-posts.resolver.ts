@@ -3,9 +3,9 @@ import { Arg, Query, Resolver, UseMiddleware } from "type-graphql";
 
 import { PostsModel } from "../models/posts.model";
 import { ListPostsInput } from "../inputs/list-posts.input";
+import type { PostCategoryType } from "@modules/posts/entities/post.entity";
 import { makeListPosts } from "@modules/posts/use-cases/factories/make-list-posts";
 import { ensureAuthenticated } from "@shared/infra/http/graphql/middlewares/ensureAuthenticated";
-import { PostCategoryType } from "@modules/posts/entities/post.entity";
 
 @Resolver(() => PostsModel)
 export class ListPostsResolver {
